@@ -1,0 +1,83 @@
+name: polymarket-blade-mcp
+version: "0.1.0"
+description: "Polymarket prediction market data — events, markets, orderbooks, prices, analytics"
+author: groupthink-dev
+licence: MIT
+tier: certified
+homepage: https://github.com/Groupthink-dev/polymarket-blade-mcp
+contract: prediction-market-v1
+
+services:
+  prediction-market:
+    events: pm_events
+    markets: pm_markets
+    orderbook: pm_orderbook
+    prices: pm_price
+    positions: null
+    search: pm_search
+    login_status: pm_status
+    keepalive: null
+    price_history: pm_price_history
+    spread: pm_spread
+    trade_history: null
+    portfolio_value: null
+    trending: pm_trending
+    categories: pm_categories
+    closing_soon: null
+    leaderboard: pm_leaderboard
+    place_order: null
+    cancel_order: null
+    cancel_all: null
+    approve_allowance: null
+
+setup:
+  icon: "chart.line.uptrend.xyaxis"
+  blurb: "Connect to Polymarket for prediction market data — real-time prices, market search, analytics."
+  auth_model: none
+  complexity: trivial
+  fields: []
+  test:
+    endpoint: "https://clob.polymarket.com/ok"
+    expected_status: [200]
+  help:
+    - label: "Polymarket API docs"
+      url: "https://docs.polymarket.com"
+    - label: "Gamma API (markets & events)"
+      url: "https://gamma-api.polymarket.com"
+    - label: "CLOB API (orderbooks & prices)"
+      url: "https://docs.polymarket.com/#clob-api"
+
+install:
+  runtime: uv
+  package: polymarket-blade-mcp
+  command: polymarket-blade-mcp
+
+env:
+  - name: POLYMARKET_GAMMA_HOST
+    description: "Override Gamma API host (default: https://gamma-api.polymarket.com)"
+    default: "https://gamma-api.polymarket.com"
+  - name: POLYMARKET_CLOB_HOST
+    description: "Override CLOB API host (default: https://clob.polymarket.com)"
+    default: "https://clob.polymarket.com"
+  - name: POLYMARKET_DATA_HOST
+    description: "Override Data API host (default: https://data-api.polymarket.com)"
+    default: "https://data-api.polymarket.com"
+  - name: POLYMARKET_MCP_TRANSPORT
+    description: "Transport mode: stdio (default) or http"
+    default: "stdio"
+  - name: POLYMARKET_MCP_API_TOKEN
+    description: "Bearer token for HTTP transport auth (optional)"
+    secret: true
+  - name: POLYMARKET_WRITE_ENABLED
+    description: "Enable write operations (v2 — not yet implemented)"
+    default: "false"
+
+requires:
+  sidereal: ">=0.40"
+
+conformance:
+  required: "7/8"
+  recommended: "6/6"
+  optional: "2/2"
+  gated: "0/4"
+  last_tested: "2026-04-07"
