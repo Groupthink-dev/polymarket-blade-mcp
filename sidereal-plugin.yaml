@@ -11,29 +11,36 @@ contract: prediction-market-v1
 
 services:
   prediction-market:
+    # System
+    status: pm_status
+    # Discovery
     events: pm_events
+    event: pm_event
     markets: pm_markets
-    orderbook: pm_orderbook
-    prices: pm_price
-    positions: null
+    market: pm_market
     search: pm_search
-    login_status: pm_status
-    keepalive: null
-    price_history: pm_price_history
-    spread: pm_spread
-    trade_history: null
-    portfolio_value: null
-    trending: pm_trending
     categories: pm_categories
-    closing_soon: null
+    trending: pm_trending
+    sports: pm_sports
+    # Pricing
+    orderbook: pm_orderbook
+    price: pm_price
+    prices_batch: pm_prices_batch
+    spread: pm_spread
+    price_history: pm_price_history
+    last_trade: pm_last_trade
+    tick_size: pm_tick_size
+    # Analytics
+    open_interest: pm_open_interest
+    top_holders: pm_top_holders
     leaderboard: pm_leaderboard
-    place_order: null
-    cancel_order: null
-    cancel_all: null
-    approve_allowance: null
+    volume: pm_volume
+    # Batch
+    orderbooks_batch: pm_orderbooks_batch
+    spreads_batch: pm_spreads_batch
 
 setup:
-  icon: "chart.line.uptrend.xyaxis"
+  icon: "chart.bar.xaxis"
   blurb: "Connect to Polymarket for prediction market data — real-time prices, market search, analytics."
   auth_model: none
   complexity: trivial
@@ -78,8 +85,5 @@ requires:
   sidereal: ">=0.40"
 
 conformance:
-  required: "7/8"
-  recommended: "6/6"
-  optional: "2/2"
-  gated: "0/4"
+  required: "22/22"
   last_tested: "2026-04-07"
