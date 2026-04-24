@@ -2,7 +2,7 @@ name: polymarket-blade-mcp
 version: "0.1.1"
 description: "Polymarket prediction market data — events, markets, orderbooks, prices, analytics"
 author: groupthink-dev
-licence: MIT
+license: MIT
 tier: certified
 author_type: first-party
 readiness: production
