@@ -1,6 +1,6 @@
 [project]
 name = "polymarket-blade-mcp"
-version = "0.1.1"
+version = "0.2.0"
 description = "Polymarket prediction market data — events, markets, orderbooks, prices, analytics. Token-efficient, rate-limited MCP server for the Sidereal platform."
 readme = "README.md"
 license = { text = "MIT" }
